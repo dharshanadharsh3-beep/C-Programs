@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+class Student {
+public:
+    void studentDetails() {
+        cout << "Student Details" << endl;
+        cout << "Name: Dharshu" << endl;
+    }
+};
+
+class Sports {
+public:
+    void sportsDetails() {
+        cout << "Sports Details" << endl;
+        cout << "Sport: Cricket" << endl;
+    }
+};
+
+class Result : public Student, public Sports {
+public:
+    void displayResult() {
+        cout << "Result: Pass" << endl;
+    }
+};
+
+int main() {
+    Result obj;
+
+    obj.studentDetails();
+    obj.sportsDetails();
+    obj.displayResult();
+
+    return 0;
+}
