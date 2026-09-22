@@ -1,0 +1,131 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Student {
+private:
+    int rollNo;
+    string name;
+    string department;
+    int age;
+
+public:
+    void addStudent() {
+        cout << "\nEnter Roll Number: ";
+        cin >> rollNo;
+
+        cin.ignore();
+
+        cout << "Enter Student Name: ";
+        getline(cin, name);
+
+        cout << "Enter Department: ";
+        getline(cin, department);
+
+        cout << "Enter Age: ";
+        cin >> age;
+    }
+
+    void displayStudent() {
+        cout << "\n----- Student Details -----" << endl;
+        cout << "Roll Number : " << rollNo << endl;
+        cout << "Name        : " << name << endl;
+        cout << "Department  : " << department << endl;
+        cout << "Age         : " << age << endl;
+    }
+};
+
+class Faculty {
+private:
+    int facultyId;
+    string name;
+    string department;
+
+public:
+    void addFaculty() {
+        cout << "\nEnter Faculty ID: ";
+        cin >> facultyId;
+
+        cin.ignore();
+
+        cout << "Enter Faculty Name: ";
+        getline(cin, name);
+
+        cout << "Enter Department: ";
+        getline(cin, department);
+    }
+
+    void displayFaculty() {
+        cout << "\n----- Faculty Details -----" << endl;
+        cout << "Faculty ID  : " << facultyId << endl;
+        cout << "Name        : " << name << endl;
+        cout << "Department  : " << department << endl;
+    }
+};
+
+class College {
+private:
+    string collegeName;
+    string location;
+
+public:
+    void displayCollege() {
+        cout << "\n==============================" << endl;
+        cout << "     COLLEGE MANAGEMENT SYSTEM" << endl;
+        cout << "==============================" << endl;
+
+        cout << "College Name : ABC Engineering College" << endl;
+        cout << "Location     : Tamil Nadu" << endl;
+    }
+};
+
+int main() {
+    College college;
+    Student student;
+    Faculty faculty;
+
+    int choice;
+
+    do {
+        college.displayCollege();
+
+        cout << "\n1. Add Student";
+        cout << "\n2. Display Student";
+        cout << "\n3. Add Faculty";
+        cout << "\n4. Display Faculty";
+        cout << "\n5. Exit";
+
+        cout << "\n\nEnter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+        case 1:
+            student.addStudent();
+            cout << "\nStudent added successfully!" << endl;
+            break;
+
+        case 2:
+            student.displayStudent();
+            break;
+
+        case 3:
+            faculty.addFaculty();
+            cout << "\nFaculty added successfully!" << endl;
+            break;
+
+        case 4:
+            faculty.displayFaculty();
+            break;
+
+        case 5:
+            cout << "\nThank you for using College Management System!" << endl;
+            break;
+
+        default:
+            cout << "\nInvalid choice. Please try again." << endl;
+        }
+
+    } while (choice != 5);
+
+    return 0;
+}
